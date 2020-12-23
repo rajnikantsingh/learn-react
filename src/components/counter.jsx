@@ -2,6 +2,7 @@ import React, { Component } from "react";
 class Counter extends Component {
 	state = {
 		buttonText: "Start",
+		count: 0,
 	};
 	render() {
 		const buttonColor = this.state.buttonText === "Stop" ? "danger" : "success";
@@ -42,13 +43,21 @@ class Counter extends Component {
 		return count === 0 ? "Zero" : count;
 	}
 
+	handleTimer() {
+		let _this = this;
+		this.incrementer = setInterval(() => {
+			_this.props.onIncrement(_this.props.counter);
+		}, 1000);
+	}
 	flipStartStop() {
-		if (this.state.buttonText == "Start") {
+		if (this.state.buttonText === "Start") {
 			const buttonText = "Stop";
 			this.setState({ buttonText });
+			this.handleTimer();
 		} else {
 			const buttonText = "Start";
 			this.setState({ buttonText });
+			clearInterval(this.incrementer);
 		}
 	}
 }
