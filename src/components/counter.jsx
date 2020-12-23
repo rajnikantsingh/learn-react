@@ -2,7 +2,6 @@ import React, { Component } from "react";
 class Counter extends Component {
 	state = {
 		buttonText: "Start",
-		count: 0,
 	};
 	render() {
 		const buttonColor = this.state.buttonText === "Stop" ? "danger" : "success";
