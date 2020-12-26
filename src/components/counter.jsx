@@ -43,9 +43,9 @@ class Counter extends Component {
 	}
 
 	handleTimer() {
-		let _this = this;
+		// let _this = this;
 		this.incrementer = setInterval(() => {
-			_this.props.onIncrement(_this.props.counter);
+			this.props.onIncrement(this.props.counter);
 		}, 1000);
 	}
 	flipStartStop() {

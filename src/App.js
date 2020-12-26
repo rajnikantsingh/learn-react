@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import NavBar from './components/navbar'
 import Counters from './components/counters';
+import Weather from './components/weather';
+import BitCointPrice from './components/bitCoin Price';
 
 class App extends Component {
   	state = {
@@ -22,7 +24,12 @@ class App extends Component {
 				id: 4,
 				value: 40,
 			},
-		],
+			],
+		cities: [
+				"Wellington",
+				"Auckland",
+				"Christchurch"
+			]
 	};
 
 	handleDelete = (counterId) => {
@@ -48,14 +55,20 @@ class App extends Component {
     return (
     <React.Fragment>
         <NavBar totalCounters={this.state.counters.filter(c => c.value > 0).length}/>
-    <main className="container">
+		<main className="container">
           <Counters
             counters={this.state.counters}
             onReset={this.handleReset}
             onIncrement={this.handleIncrement}
             onDelete={this.handleDelete}
-          />
-        </main>
+				/>
+			<Weather
+			cities={this.state.cities}
+				/>
+			</main>
+			<h1>
+				<BitCointPrice />
+			</h1>
         </React.Fragment>
   );
   }

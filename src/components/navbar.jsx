@@ -9,6 +9,9 @@ class NavBar extends Component {
 						{this.props.totalCounters}
 					</span>
 				</a>
+				<a className="navbar-brand" href="sdfs">
+					Weather for Wellington
+				</a>
 			</nav>
 		);
 	}
